@@ -111,7 +111,10 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 0 15px rgba(255, 81, 47, 0.6);
-}
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    touch-action: manipulation;
+}   
 
 /* Hover Effect */
 #startBtn:hover {
