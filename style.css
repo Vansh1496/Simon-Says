@@ -44,11 +44,15 @@ body {
 
 /* Individual Color Pads */
 .pad {
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  touch-action: manipulation;
   cursor: pointer;
   transition: brightness 0.2s, transform 0.1s;
 }
 
 .pad:active {
+  
   filter: brightness(2);
   transform: scale(1.1);
 }

@@ -64,7 +64,7 @@ function checkAns(idx){
             setTimeout( levelUp , 1000)
         }
     } else{
-        description.innerHTML = `Game Over!  your score is ${level} press start to start again`
+        description.innerHTML = `Game Over!  your score is ${level} press start button to start again`
         document.querySelector(".simon-board").style.backgroundColor = "red"
         setTimeout(function(){
             document.querySelector(".simon-board").style.backgroundColor = "black"
