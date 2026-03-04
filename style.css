@@ -12,7 +12,9 @@ body {
   background-image: url("./bgimage.jpeg");
   background-size: none;
   color: white;
- -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  touch-action: manipulation;
 }
 
 .gameover{
