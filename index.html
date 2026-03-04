@@ -1,26 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SIMON SAYS</title>
-    <link rel="stylesheet" href="simon_says.css" />
-  </head>
-  <body> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style1.css">
+    <title>Document</title>
+</head>
+<body>
+  <div class="container">
     <h1>SIMON SAYS GAME</h1>
-    <h2>Press any key to start the game</h2>
+    <h2>Press Start button to start the game</h2>
+    <button id="startBtn">Start</button>
     <h3>Highest Score</h3>
-    <div class="btn-conatiner">
-      <div class="line1">
-        <div class="btn red" type="button" id="red">1</div>
-        <div class="btn yellow" type="button" id="yellow">2</div>
-      </div>
-      <div class="line2">
-        <div class="btn green" type="button" id="green">3</div>
-        <div class="btn purple" type="button" id="purple">4</div>
+    <div class="simon-board">
+      <div class="pad purple" id="purple"></div>
+      <div class="pad red" id="red"></div>
+      <div class="pad yellow" id="yellow"></div>
+      <div class="pad blue" id="blue"></div>
+    
+      <div class="center-hub">
+        <div class="logo">LEVEL</div>
+        <div class="level"></div>
       </div>
     </div>
-    <script src="simon_says.js"></script>
-  </body>
+  </div>
+  <script src="app.js"></script>
+</body>
 </html>
+
+>>>>>>> 556409a (Renamed files and updated structure)
