@@ -1,3 +1,9 @@
+let startBtn = document.querySelector("#startBtn");
+startBtn.addEventListener("click",function(){
+    document.getElementById("startPopup").style.display="none";
+    
+});
+
 
 let gameSeq=[];
 let userSeq=[];
@@ -13,13 +19,17 @@ let h3 = document.querySelector("h3");
 let tempLevel = document.querySelector(".level")
 let startbtn = document.querySelector("#startBtn")
 
-startbtn.addEventListener("click" , function(){
-    if(start == false){
-        console.log("game started")
-        start = true;
-        levelUp();
-    }
-});
+    startbtn.addEventListener("click" , function(){
+        if(start == false){
+            console.log("game started")
+            start = true;
+
+            setTimeout(()=>{
+                levelUp()
+            },500)
+        }
+    });
+
 
 function levelUp(){
     console.log("levelup")
@@ -43,6 +53,22 @@ function gameFlash(btn){
     setTimeout(function () {
         btn.classList.remove("flash")
     } , 200)
+}
+
+let allBtns = document.querySelectorAll(".pad")
+for (btn of allBtns){
+    btn.addEventListener("click" , btnPress)
+}
+
+function btnPress(){
+    console.log("btnpress")
+    let btn = this;
+    userFlash(btn)
+
+    userColor = btn.getAttribute("id")
+    userSeq.push(userColor);
+    checkAns(userSeq.length-1);
+    
 }
 
 
@@ -78,25 +104,9 @@ function checkAns(idx){
             }
         }
         h3.innerText = `Highest Score = ${max}`
-        reset();
+        showGameOver();
     }
 } 
-
-function btnPress(){
-    console.log("btnpress")
-    let btn = this;
-    userFlash(btn)
-
-    userColor = btn.getAttribute("id")
-    userSeq.push(userColor);
-    checkAns(userSeq.length-1);
-    
-}
-
-let allBtns = document.querySelectorAll(".pad")
-for (btn of allBtns){
-    btn.addEventListener("click" , btnPress)
-}
 
 function reset(){
     console.log("reset")
@@ -104,4 +114,18 @@ function reset(){
     gameSeq = [];
     userSeq = [];
     level = 0;
+    document.getElementById("gameOverPopup").style.display = "none";
+    setTimeout(() => {
+        levelUp();
+    } , 1000)
 }
+
+function showGameOver(){
+    console.log("game over")
+    document.getElementById("gameOverPopup").style.display="flex";
+    document.getElementById("finalScore").innerText="Your Score : "+level;
+}
+let btnrestrat = document.querySelector(".restart")
+btnrestrat.addEventListener("click" , reset);
+
+

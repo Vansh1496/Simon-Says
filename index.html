@@ -7,10 +7,27 @@
     <title>SIMON SAYS</title>
 </head>
 <body>
+  <div id="startPopup" class="popup">
+  <div class="popup-box">
+
+    <h1>🧠 Simon Says</h1>
+
+    <p class="rules-title">Game Rules</p>
+
+    <ul class="rules">
+      <li>Watch the color sequence carefully.</li>
+      <li>Repeat the same sequence.</li>
+      <li>Sequence gets longer every level.</li>
+      <li>Make a mistake and the game ends.</li>
+    </ul>
+
+    <button id="startBtn">Start Game</button>
+
+  </div>
+</div>
   <div class="container">
     <h1>SIMON SAYS GAME</h1>
-    <h2>Press Start button to start the game</h2>
-    <button id="startBtn">Start</button>
+    <h2>Simon Says follow the sequence</h2>
     <h3>Highest Score</h3>
     <div class="simon-board">
       <div class="pad purple" id="purple"></div>
@@ -24,6 +41,17 @@
       </div>
     </div>
   </div>
-  <script src="app.js"></script>
+  <div id="gameOverPopup" class="popup" style="display:none;">
+  <div class="popup-box">
+
+    <h2>Game Over 😢</h2>
+
+    <p id="finalScore"></p>
+
+    <button class="restart">Restart Game</button>
+
+  </div>
+</div>
+  <script src="app1.js"></script>
 </body>
 </html>
