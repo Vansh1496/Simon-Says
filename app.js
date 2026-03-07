@@ -1,9 +1,7 @@
 let startBtn = document.querySelector("#startBtn");
 startBtn.addEventListener("click",function(){
     document.getElementById("startPopup").style.display="none";
-    
 });
-
 
 let gameSeq=[];
 let userSeq=[];
@@ -19,16 +17,15 @@ let h3 = document.querySelector("h3");
 let tempLevel = document.querySelector(".level")
 let startbtn = document.querySelector("#startBtn")
 
-    startbtn.addEventListener("click" , function(){
-        if(start == false){
-            console.log("game started")
-            start = true;
-
-            setTimeout(()=>{
-                levelUp()
-            },500)
-        }
-    });
+startbtn.addEventListener("click" , function(){
+    if(start == false){
+        console.log("game started")
+        start = true;
+        setTimeout(()=>{
+            levelUp()
+        },500)
+    }
+});
 
 
 function levelUp(){
@@ -50,6 +47,7 @@ function levelUp(){
 function gameFlash(btn){
     console.log("gameflash")
     btn.classList.add("flash")
+    playSound("btn");
     setTimeout(function () {
         btn.classList.remove("flash")
     } , 200)
@@ -64,6 +62,7 @@ function btnPress(){
     console.log("btnpress")
     let btn = this;
     userFlash(btn)
+    playSound("btn");
 
     userColor = btn.getAttribute("id")
     userSeq.push(userColor);
@@ -75,6 +74,7 @@ function btnPress(){
 function userFlash(btn){
     console.log("userflash")
     btn.classList.add("userFlash")
+    playSound("btn");
     setTimeout(function () {
         btn.classList.remove("userFlash")
     } , 200)
@@ -90,7 +90,6 @@ function checkAns(idx){
             setTimeout( levelUp , 1000)
         }
     } else{
-        description.innerHTML = `Game Over!  your score is ${level} press start button to start again`
         document.querySelector(".simon-board").style.backgroundColor = "red"
         setTimeout(function(){
             document.querySelector(".simon-board").style.backgroundColor = "black"
@@ -124,8 +123,19 @@ function showGameOver(){
     console.log("game over")
     document.getElementById("gameOverPopup").style.display="flex";
     document.getElementById("finalScore").innerText="Your Score : "+level;
+    playSound("gameover");
 }
 let btnrestrat = document.querySelector(".restart")
 btnrestrat.addEventListener("click" , reset);
 
 
+function playSound(type){
+    if(type == "btn"){
+        let audio = new Audio("btnSound.mp3");
+        audio.play();
+    }
+    else if(type == "gameover"){
+        let audio = new Audio("gameover.mp3");
+        audio.play();
+    }
+}
